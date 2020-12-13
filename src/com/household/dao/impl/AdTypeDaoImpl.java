@@ -5,10 +5,13 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.junit.Test;
 
 import com.household.dao.AdTypeDao;
 import com.household.pojo.AdInfo;
 import com.household.pojo.AdType;
+import com.household.service.AdInfoManagerService;
+import com.household.service.impl.AdInfoManagerServiceImpl;
 import com.household.util.C3P0Utils;
 
 public class AdTypeDaoImpl implements AdTypeDao {
@@ -28,6 +31,11 @@ public class AdTypeDaoImpl implements AdTypeDao {
 		return 0;
 	}
 
+	@Test
+	public void test01(){
+		int falg = addAdType("邓雨");
+		System.out.println(falg);
+	}
 	@Override//通过id删除广告类型
 	public int delAdType(int id) {
 		String sql = "DELETE FROM `ad_type` WHERE ad_type_id = ?";

@@ -1,16 +1,8 @@
 package com.household.test;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.el.ArrayELResolver;
-
 import org.junit.Test;
-
-import com.household.dao.AdInfoDao;
-import com.household.dao.AdTypeDao;
-import com.household.dao.impl.AdInfoDaoImpl;
-import com.household.dao.impl.AdTypeDaoImpl;
 import com.household.pojo.AdInfo;
 import com.household.pojo.AdType;
 import com.household.service.AdInfoManagerService;

@@ -5,9 +5,12 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.junit.Test;
 
 import com.household.dao.AdInfoDao;
 import com.household.pojo.AdInfo;
+import com.household.service.AdInfoManagerService;
+import com.household.service.impl.AdInfoManagerServiceImpl;
 import com.household.util.C3P0Utils;
 
 public class AdInfoDaoImpl implements AdInfoDao {
@@ -131,5 +134,4 @@ public class AdInfoDaoImpl implements AdInfoDao {
 		}
 		return null;
 	}
-
 }
