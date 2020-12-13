@@ -15,6 +15,7 @@ import com.household.util.C3P0Utils;
 
 public class AdInfoDaoImpl implements AdInfoDao {
 	
+	//123456789
 	//创建  DBUtils 操作数据库的对象  (需要给定 数据源)
     QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 
