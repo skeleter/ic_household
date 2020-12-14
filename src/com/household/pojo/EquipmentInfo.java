@@ -6,8 +6,17 @@ public class EquipmentInfo {
     private String equipmentLocation;
 
     private String equipmentUse;
+    private String equipmentName;
 
-    public Integer getEquipmentId() {
+    
+	public String getEquipmentName() {
+		return equipmentName;
+	}
+	public void setEquipmentName(String equipmentName) {
+		this.equipmentName = equipmentName;
+	}
+
+	public Integer getEquipmentId() {
         return equipmentId;
     }
 
@@ -36,17 +45,18 @@ public class EquipmentInfo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EquipmentInfo(Integer equipmentId, String equipmentLocation, String equipmentUse) {
+	public EquipmentInfo(Integer equipmentId, String equipmentLocation, String equipmentUse,String equipmentName) {
 		super();
 		this.equipmentId = equipmentId;
 		this.equipmentLocation = equipmentLocation;
 		this.equipmentUse = equipmentUse;
+		this.equipmentName = equipmentName;
 	}
 
 	@Override
 	public String toString() {
 		return "EquipmentInfo [equipmentId=" + equipmentId + ", equipmentLocation=" + equipmentLocation
-				+ ", equipmentUse=" + equipmentUse + "]";
+				+ ", equipmentUse=" + equipmentUse + ", equipmentName=" + equipmentName+"]";
 	}
     
 }
