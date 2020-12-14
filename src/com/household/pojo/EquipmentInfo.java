@@ -1,7 +1,7 @@
 package com.household.pojo;
 
 public class EquipmentInfo {
-    private Integer equipmentId;
+	private Integer equipmentId;
 
     private String equipmentLocation;
 

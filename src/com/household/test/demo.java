@@ -5,8 +5,11 @@ import java.util.List;
 import org.junit.Test;
 import com.household.pojo.AdInfo;
 import com.household.pojo.AdType;
+import com.household.pojo.EquipmentInfo;
 import com.household.service.AdInfoManagerService;
+import com.household.service.EquipmentManagerService;
 import com.household.service.impl.AdInfoManagerServiceImpl;
+import com.household.service.impl.EquipmentManagerServiceImpl;
 
 public class demo {
 	
@@ -107,17 +110,66 @@ public class demo {
 		}
 	}
 	
+	@Test
+	public void test12(){
+		EquipmentManagerService eqm = new EquipmentManagerServiceImpl();
 		
+		EquipmentInfo eq = new EquipmentInfo();
+		eq.setEquipmentLocation("武汉");
+		eq.setEquipmentName("王紫轩");
+		eq.setEquipmentUse("彭杰");
+		boolean flag = eqm.addEquipmentInfo(eq);
+		System.out.println(flag);
+	}	
 	
+	@Test
+	public void test13(){
+		EquipmentManagerService eqm = new EquipmentManagerServiceImpl();
+		
+		EquipmentInfo eq = new EquipmentInfo();
+		eq.setEquipmentId(1);
+		eq.setEquipmentName("王紫轩");
+		eq.setEquipmentLocation("武汉");
+		eq.setEquipmentUse("邓雨川");
+		boolean flag = eqm.updateEquipmentInfo(eq);
+		System.out.println(flag);
+	}
 	
+	@Test
+	public void test14(){
+		EquipmentManagerService eqm = new EquipmentManagerServiceImpl();
+		
+		boolean flag = eqm.delEquipmentInfo(1);
+		System.out.println(flag);
+	}
 	
+	@Test
+	public void test15(){
+		EquipmentManagerService eqm = new EquipmentManagerServiceImpl();
+		
+		EquipmentInfo eq = eqm.getEquipmentInfoByEquipmentId(2);
+		System.out.println(eq);	
+	}
 	
+	@Test
+	public void test16(){
+		EquipmentManagerService eqm = new EquipmentManagerServiceImpl();
+		
+		List<EquipmentInfo> list = eqm.getEquipmentInfoLikeUse("雨");
+		for (EquipmentInfo equipmentInfo : list) {
+			System.out.println(equipmentInfo);
+		}
+	}
 	
-	
-	
-	
-	
-	
+	@Test
+	public void test17(){
+		EquipmentManagerService eqm = new EquipmentManagerServiceImpl();
+		
+		List<EquipmentInfo> list = eqm.getEquipmentInfoLikeName("王");
+		for (EquipmentInfo equipmentInfo : list) {
+			System.out.println(equipmentInfo);
+		}
+	}
 	
 	
 	
