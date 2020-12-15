@@ -3,7 +3,7 @@ package com.household.pojo;
 public class StareInfo {
     private Integer stareId;
 
-    private Integer stareTpyeId;
+    private Integer stareTypeId;
 
     private String stareLocation;
 
@@ -20,11 +20,11 @@ public class StareInfo {
     }
 
     public Integer getStareTpyeId() {
-        return stareTpyeId;
+        return stareTypeId;
     }
 
     public void setStareTpyeId(Integer stareTpyeId) {
-        this.stareTpyeId = stareTpyeId;
+        this.stareTypeId = stareTpyeId;
     }
 
     public String getStareLocation() {
@@ -59,7 +59,7 @@ public class StareInfo {
 	public StareInfo(Integer stareId, Integer stareTpyeId, String stareLocation, String stareName, Float rent) {
 		super();
 		this.stareId = stareId;
-		this.stareTpyeId = stareTpyeId;
+		this.stareTypeId = stareTpyeId;
 		this.stareLocation = stareLocation;
 		this.stareName = stareName;
 		this.rent = rent;
@@ -67,7 +67,7 @@ public class StareInfo {
 
 	@Override
 	public String toString() {
-		return "StareInfo [stareId=" + stareId + ", stareTpyeId=" + stareTpyeId + ", stareLocation=" + stareLocation
+		return "StareInfo [stareId=" + stareId + ", stareTypeId=" + stareTypeId + ", stareLocation=" + stareLocation
 				+ ", stareName=" + stareName + ", rent=" + rent + "]";
 	}
     

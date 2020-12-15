@@ -1,6 +1,4 @@
 package com.household.service.impl;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import com.household.dao.AdInfoDao;
@@ -10,7 +8,6 @@ import com.household.dao.impl.AdTypeDaoImpl;
 import com.household.pojo.AdInfo;
 import com.household.pojo.AdType;
 import com.household.service.AdInfoManagerService;
-import com.mysql.fabric.xmlrpc.base.Array;
 
 public class AdInfoManagerServiceImpl implements AdInfoManagerService {
 	AdTypeDao atd = new AdTypeDaoImpl();
