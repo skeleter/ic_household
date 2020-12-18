@@ -4,8 +4,28 @@ import java.util.Date;
 
 public class PropertyArrearsData {
     private Integer houseId;
+    private Integer arrearsId;
+    
+	/**  
+	 * @title: getArrearsId
+	 * @description: TODO
+	 * @return: Integer
+	 */
+	public Integer getArrearsId() {
+		return arrearsId;
+	}
 
-    private Integer residentId;
+	/**
+	 * @title: setArrearsId
+	 * @description: TODO
+	 * @return: Integer
+	
+	 */
+	public void setArrearsId(Integer arrearsId) {
+		this.arrearsId = arrearsId;
+	}
+
+	private Integer residentId;
 
     private Float propertyArrears;
 
@@ -48,17 +68,18 @@ public class PropertyArrearsData {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PropertyArrearsData(Integer houseId, Integer residentId, Float propertyArrears, Date propertyTime) {
+	public PropertyArrearsData(Integer arrearsId,Integer houseId, Integer residentId, Float propertyArrears, Date propertyTime) {
 		super();
 		this.houseId = houseId;
 		this.residentId = residentId;
 		this.propertyArrears = propertyArrears;
 		this.propertyTime = propertyTime;
+		this.arrearsId=arrearsId;
 	}
 
 	@Override
 	public String toString() {
-		return "PropertyArrearsData [houseId=" + houseId + ", residentId=" + residentId + ", propertyArrears="
+		return "PropertyArrearsData [houseId=" + houseId + ", arrearsId=" + arrearsId + ", residentId=" + residentId + ", propertyArrears="
 				+ propertyArrears + ", propertyTime=" + propertyTime + "]";
 	}
     
