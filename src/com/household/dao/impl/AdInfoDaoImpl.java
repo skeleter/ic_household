@@ -51,7 +51,7 @@ public class AdInfoDaoImpl implements AdInfoDao {
 
 	@Override//通过ID删除相应的广告位（输入广告位ID（int），返回布尔类型）
 	public int delAdInfo(int id) {
-		String sql = "DELETE FROM `ad_info` WHERE ad_id = ?";
+		String sql = "DELETE FROM stare_type WHERE stare_type_id = ?";
 		try {
 			return qr.update(sql, id);
 		} catch (Exception e) {
