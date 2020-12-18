@@ -28,7 +28,7 @@ import com.household.pojo.StareType;
  ****将查询方法写入公共查询接口Dao内，并在impl包内实现，切记不要修改和删除其内部方法，防止其他功能无法实现
  ****在每个方法前写备注，明确方法用途，写完备注时间和姓名
  * 时间：彭杰
- * 姓名：12月18日111
+ * 姓名：12月18日111111
  */
 public interface StareManagerService {
 	
