@@ -7,6 +7,7 @@ import com.household.dao.StareTypeDao;
 import com.household.dao.impl.StareInfoDaoImpl;
 import com.household.dao.impl.StareTypeDaoImpl;
 import com.household.pojo.StareInfo;
+import com.household.pojo.StareInfoAll;
 import com.household.pojo.StareType;
 import com.household.service.StareManagerService;
 
@@ -83,6 +84,42 @@ public class StareManagerServiceImpl implements StareManagerService {
 	@Override//通过连表查询，查询已经租出去的商铺（无输入，返回List<StareInfo>）
 	public List<StareInfo> getStareInfoByOut() {
 		List<StareInfo> list = sti.getStareInfoByOut();
+		return list;
+	}
+
+	@Override//通过连表查询，查询未租出去的商铺（无输入，返回List<StareInfo>）
+	public List<StareInfo> getStareInfoByNoOut() {
+		List<StareInfo> list = sti.getStareInfoByNoOut();
+		return list;
+	}
+
+	@Override//综合查询商铺详细信息，三个表连在一起查询（无输入，返回List<StareInfoAll>)
+	public List<StareInfoAll> getStareInfoAll() {
+		List<StareInfoAll> list = sti.getStareInfoAll();
+		return list;
+	}
+
+	@Override//通过模糊名字对商铺详细信息进行查询，三个表连在一起查询（输入String，返回List<StareInfoAll>)
+	public List<StareInfoAll> getStareInfoAllByLikeName(String name) {
+		List<StareInfoAll> list = sti.getStareInfoAllByLikeName(name);
+		return list;
+	}
+
+	@Override//通过模糊店铺类型对商铺详细信息进行查询，三个表连在一起查询（输入String，返回List<StareInfoAll>)
+	public List<StareInfoAll> getStareInfoAllByTypeName(String typeName) {
+		List<StareInfoAll> list = sti.getStareInfoAllByTypeName(typeName);
+		return list;
+	}
+
+	@Override//通过区间租金对商铺详细信息进行查询，三个表连在一起查询（输入float（Min），float（Max），返回List<StareInfoAll>)
+	public List<StareInfoAll> getStareInfoAllByBetween(Integer min, Integer max) {
+		List<StareInfoAll> list = sti.getStareInfoAllByBetween(Float.valueOf(min), Float.valueOf(max));
+		return list;
+	}
+
+	@Override//通过模糊位置对商铺详细信息进行查询，三个表连在一起查询（输入String，返回List<StareInfoAll>)
+	public List<StareInfoAll> getStareInfoAllByLocation(String location) {
+		List<StareInfoAll> list = sti.getStareInfoAllByLocation(location);
 		return list;
 	}
 	

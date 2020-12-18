@@ -7,6 +7,7 @@ import com.household.pojo.AdInfo;
 import com.household.pojo.AdType;
 import com.household.pojo.EquipmentInfo;
 import com.household.pojo.StareInfo;
+import com.household.pojo.StareInfoAll;
 import com.household.pojo.StareType;
 import com.household.service.AdInfoManagerService;
 import com.household.service.EquipmentManagerService;
@@ -256,13 +257,65 @@ public class demo {
 		}
 	}
 	
+	@Test
+	public void test26(){
+		StareManagerService sm = new StareManagerServiceImpl();
+		
+		List<StareInfo> list = sm.getStareInfoByNoOut();
+		for (StareInfo stareInfo : list) {
+			System.out.println(stareInfo);
+		}
+	}
 	
+	@Test
+	public void test27(){
+		StareManagerService sm = new StareManagerServiceImpl();
+		
+		List<StareInfoAll> list = sm.getStareInfoAll();
+		for (StareInfoAll ss : list) {
+			System.out.println(ss);
+		}
+	}
 	
+	@Test
+	public void test28(){
+		StareManagerService sm = new StareManagerServiceImpl();
+		
+		List<StareInfoAll> list = sm.getStareInfoAllByLikeName("紫轩");
+		for (StareInfoAll ss : list) {
+			System.out.println(ss);
+		}
+	}
 	
+	@Test
+	public void test29(){
+		StareManagerService sm = new StareManagerServiceImpl();
+		
+		List<StareInfoAll> list = sm.getStareInfoAllByTypeName("蛋糕");
+		for (StareInfoAll ss : list) {
+			System.out.println(ss);
+		}
+	}
 	
+	@Test
+	public void test30(){
+		StareManagerService sm = new StareManagerServiceImpl();
+		
+		List<StareInfoAll> list = sm.getStareInfoAllByBetween(2000, 3000);
+		for (StareInfoAll ss : list) {
+			System.out.println(ss);
+		}
+	}
 	
-	
-	
+	@Test
+	public void test31(){
+		StareManagerService sm = new StareManagerServiceImpl();
+		
+		List<StareInfoAll> list = sm.getStareInfoAllByLocation("卓刀泉");
+		for (StareInfoAll ss : list) {
+			System.out.println(ss);
+		}
+	}
 	
 	
 	

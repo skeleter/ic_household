@@ -19,184 +19,81 @@ public class StareInfoAll {
 
     private String stareOwnerTelephone;
 
-	
-	/**  
-	 * @title: getStareId
-	 * @description: TODO
-	 * @return: Integer
-	 */
 	public Integer getStareId() {
 		return stareId;
 	}
 
-	/**
-	 * @title: setStareId
-	 * @description: TODO
-	 * @return: Integer
-	
-	 */
 	public void setStareId(Integer stareId) {
 		this.stareId = stareId;
 	}
 
-	
-	/**  
-	 * @title: getStareTypeName
-	 * @description: TODO
-	 * @return: String
-	 */
 	public String getStareTypeName() {
 		return stareTypeName;
 	}
 
-	/**
-	 * @title: setStareTypeName
-	 * @description: TODO
-	 * @return: String
-	
-	 */
 	public void setStareTypeName(String stareTypeName) {
 		this.stareTypeName = stareTypeName;
 	}
 
-	
-	/**  
-	 * @title: getStareLocation
-	 * @description: TODO
-	 * @return: String
-	 */
 	public String getStareLocation() {
 		return stareLocation;
 	}
 
-	/**
-	 * @title: setStareLocation
-	 * @description: TODO
-	 * @return: String
-	
-	 */
 	public void setStareLocation(String stareLocation) {
 		this.stareLocation = stareLocation;
 	}
 
-	
-	/**  
-	 * @title: getStareName
-	 * @description: TODO
-	 * @return: String
-	 */
 	public String getStareName() {
 		return stareName;
 	}
 
-	/**
-	 * @title: setStareName
-	 * @description: TODO
-	 * @return: String
-	
-	 */
 	public void setStareName(String stareName) {
 		this.stareName = stareName;
 	}
 
-	
-	/**  
-	 * @title: getRent
-	 * @description: TODO
-	 * @return: Float
-	 */
 	public Float getRent() {
 		return rent;
 	}
 
-	/**
-	 * @title: setRent
-	 * @description: TODO
-	 * @return: Float
-	
-	 */
 	public void setRent(Float rent) {
 		this.rent = rent;
 	}
 
-	
-	/**  
-	 * @title: getStareTimeStart
-	 * @description: TODO
-	 * @return: Date
-	 */
 	public Date getStareTimeStart() {
 		return stareTimeStart;
 	}
 
-	/**
-	 * @title: setStareTimeStart
-	 * @description: TODO
-	 * @return: Date
-	
-	 */
 	public void setStareTimeStart(Date stareTimeStart) {
 		this.stareTimeStart = stareTimeStart;
 	}
 
-	
-	/**  
-	 * @title: getStareTimeEnd
-	 * @description: TODO
-	 * @return: Date
-	 */
 	public Date getStareTimeEnd() {
 		return stareTimeEnd;
 	}
 
-	/**
-	 * @title: setStareTimeEnd
-	 * @description: TODO
-	 * @return: Date
-	
-	 */
 	public void setStareTimeEnd(Date stareTimeEnd) {
 		this.stareTimeEnd = stareTimeEnd;
 	}
 
-	
-	/**  
-	 * @title: getStareOwnerName
-	 * @description: TODO
-	 * @return: String
-	 */
 	public String getStareOwnerName() {
 		return stareOwnerName;
 	}
 
-	/**
-	 * @title: setStareOwnerName
-	 * @description: TODO
-	 * @return: String
-	
-	 */
 	public void setStareOwnerName(String stareOwnerName) {
 		this.stareOwnerName = stareOwnerName;
 	}
 
-	
-	/**  
-	 * @title: getStareOwnerTelephone
-	 * @description: TODO
-	 * @return: String
-	 */
 	public String getStareOwnerTelephone() {
 		return stareOwnerTelephone;
 	}
 
-	/**
-	 * @title: setStareOwnerTelephone
-	 * @description: TODO
-	 * @return: String
-	
-	 */
 	public void setStareOwnerTelephone(String stareOwnerTelephone) {
 		this.stareOwnerTelephone = stareOwnerTelephone;
+	}
+
+	public StareInfoAll() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public StareInfoAll(Integer stareId, String stareTypeName, String stareLocation, String stareName, Float rent,
@@ -213,18 +110,6 @@ public class StareInfoAll {
 		this.stareOwnerTelephone = stareOwnerTelephone;
 	}
 
-	public StareInfoAll() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	
-	/**   
-	 * @title: toString
-	 * @description: TODO
-	 * @return   
-	 * @see java.lang.Object#toString()     
-	 */ 
 	@Override
 	public String toString() {
 		return "StareInfoAll [stareId=" + stareId + ", stareTypeName=" + stareTypeName + ", stareLocation="
@@ -232,5 +117,8 @@ public class StareInfoAll {
 				+ ", stareTimeEnd=" + stareTimeEnd + ", stareOwnerName=" + stareOwnerName + ", stareOwnerTelephone="
 				+ stareOwnerTelephone + "]";
 	}
+
+	
+
     
 }

@@ -3,6 +3,7 @@ package com.household.service;
 import java.util.List;
 
 import com.household.pojo.StareInfo;
+import com.household.pojo.StareInfoAll;
 import com.household.pojo.StareType;
 
 /**
@@ -28,7 +29,7 @@ import com.household.pojo.StareType;
  ****将查询方法写入公共查询接口Dao内，并在impl包内实现，切记不要修改和删除其内部方法，防止其他功能无法实现
  ****在每个方法前写备注，明确方法用途，写完备注时间和姓名
  * 时间：彭杰
- * 姓名：12月18日111111
+ * 姓名：12月18日
  */
 public interface StareManagerService {
 	
@@ -56,17 +57,23 @@ public interface StareManagerService {
 	//通过连表查询，查询已经租出去的商铺（无输入，返回List<StareInfo>）
 	List<StareInfo> getStareInfoByOut();
 	
+	//通过连表查询，查询未租出去的商铺（无输入，返回List<StareInfo>）
+	List<StareInfo> getStareInfoByNoOut();
 	
+	//综合查询商铺详细信息，三个表连在一起查询（无输入，返回List<StareInfoAll>)
+	List<StareInfoAll> getStareInfoAll();
 	
+	//通过模糊名字对商铺详细信息进行查询，三个表连在一起查询（输入String，返回List<StareInfoAll>)
+	List<StareInfoAll> getStareInfoAllByLikeName(String name);
 	
+	//通过模糊店铺类型对商铺详细信息进行查询，三个表连在一起查询（输入String，返回List<StareInfoAll>)
+	List<StareInfoAll> getStareInfoAllByTypeName(String typeName);
 	
+	//通过区间租金对商铺详细信息进行查询，三个表连在一起查询（输入float（Min），float（Max），返回List<StareInfoAll>)
+	List<StareInfoAll> getStareInfoAllByBetween(Integer min,Integer max);
 	
-	
-	
-	
-	
-	
-	
+	//通过模糊位置对商铺详细信息进行查询，三个表连在一起查询（输入String，返回List<StareInfoAll>)
+	List<StareInfoAll> getStareInfoAllByLocation(String location);
 	
 
 }
