@@ -6,8 +6,29 @@ public class ParkingInfo {
     private String parkingLocation;
 
     private Float rent;
+    private Integer residentId;
 
-    public Integer getParkingId() {
+    
+	/**  
+	 * @title: getResidentId
+	 * @description: TODO
+	 * @return: Integer
+	 */
+	public Integer getResidentId() {
+		return residentId;
+	}
+
+	/**
+	 * @title: setResidentId
+	 * @description: TODO
+	 * @return: Integer
+	
+	 */
+	public void setResidentId(Integer residentId) {
+		this.residentId = residentId;
+	}
+
+	public Integer getParkingId() {
         return parkingId;
     }
 
@@ -36,16 +57,17 @@ public class ParkingInfo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ParkingInfo(Integer parkingId, String parkingLocation, Float rent) {
+	public ParkingInfo(Integer parkingId, String parkingLocation, Float rent,Integer residentId) {
 		super();
 		this.parkingId = parkingId;
 		this.parkingLocation = parkingLocation;
 		this.rent = rent;
+		this.residentId=residentId;
 	}
 
 	@Override
 	public String toString() {
-		return "ParkingInfo [parkingId=" + parkingId + ", parkingLocation=" + parkingLocation + ", rent=" + rent + "]";
+		return "ParkingInfo [parkingId=" + parkingId + ", parkingLocation=" + parkingLocation + ", rent=" + rent + ", residentId=" + residentId + "]";
 	}
     
 }
