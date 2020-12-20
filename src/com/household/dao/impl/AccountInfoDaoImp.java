@@ -52,8 +52,9 @@ public class AccountInfoDaoImp implements AccountInfoDao{
 		try {		
 			 return qr.query(sql,info, handler);
 		} catch (SQLException e) {
-			return null;
+			e.printStackTrace();
 		}
+		return null;
 		
 	}
 	
@@ -71,8 +72,9 @@ public class AccountInfoDaoImp implements AccountInfoDao{
 		try {		
 			 return qr.query(sql,name, handler);
 		} catch (SQLException e) {
-			return null;
+			e.printStackTrace();
 		}
+		return null;
 		
 	}
 	
@@ -88,8 +90,9 @@ public class AccountInfoDaoImp implements AccountInfoDao{
 		try {
 		return	qr.update(sql, c.getUserId(),c.getUserName(),c.getUserPassword(),c.getUserType());
 		} catch (SQLException e) {
-			return 0;
+			e.printStackTrace();
 		}
+		return 0;
 		
 	}
 
@@ -105,8 +108,9 @@ public class AccountInfoDaoImp implements AccountInfoDao{
 		try {
 		return	qr.update(sql, id);
 		} catch (SQLException e) {
-			return 0;
+			e.printStackTrace();
 		}
+		return 0;
 		
 	}
 
@@ -122,8 +126,9 @@ public class AccountInfoDaoImp implements AccountInfoDao{
 		try {
 		return	qr.update(sql,c.getUserId(),c.getUserName(),c.getUserPassword(),c.getUserType(),c.getUserId());
 		} catch (SQLException e) {
-			return 0;
+			e.printStackTrace();
 		}
+		return 0;
 		
 	}
 
@@ -142,8 +147,9 @@ public class AccountInfoDaoImp implements AccountInfoDao{
 			return qr.query(sql, handler);
 			 
 		} catch (SQLException e) {
-			return null;
+			e.printStackTrace();
 		}
+		return null;
 		
 		
 	}
