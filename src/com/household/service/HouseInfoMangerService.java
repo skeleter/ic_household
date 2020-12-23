@@ -24,8 +24,8 @@ import com.household.pojo.HouseType;
  ****修改删除相应表的接口Dao内的方法，并在impl包内实现
  ****将查询方法写入公共查询接口Dao内，并在impl包内实现，切记不要修改和删除其内部方法，防止其他功能无法实现
  ****在每个方法前写备注，明确方法用途，写完备注时间和姓名
- * 时间：
- * 姓名：
+ * 时间：12-23
+ * 姓名：ty
  */
 public interface HouseInfoMangerService {
 		//1.房屋类型的增加（输入HouseType，返回布尔类型）
