@@ -9,7 +9,11 @@ public interface HouseInfoDao {
 	List<HouseInfo> getHouseInfoByHouseTypeId(int id);
 	List<HouseInfo> getHouseInfoByResidentId(int id);
 	int addHouseInfo(HouseInfo c);
-	int delHouseInfo(HouseInfo c);
+	int delHouseInfoById(int id);
 	int updateHouseInfo(HouseInfo c);
-	List<HouseInfo> getHouseInfoAll();
+	List<HouseInfo> getAllHouseInfo();
+	List<HouseInfo> getHouseInfoLikeHouseType(String type);
+	List<HouseInfo> getHouseInfoByResident(boolean flag);
+	List<HouseInfo> getHouseInfoByFloor(int floor);
+		
 }
