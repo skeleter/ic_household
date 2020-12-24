@@ -15,5 +15,6 @@ public interface HouseInfoDao {
 	List<HouseInfo> getHouseInfoLikeHouseType(String type);
 	List<HouseInfo> getHouseInfoByResident(boolean flag);
 	List<HouseInfo> getHouseInfoByFloor(int floor);
-		
+	List<HouseInfo> getHouseInfoAll();
+	List<HouseInfo> getHouseInfoBychuzu();	
 }

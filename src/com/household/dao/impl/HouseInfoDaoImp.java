@@ -13,12 +13,12 @@ import com.household.util.C3P0Utils;
 
 
 public class HouseInfoDaoImp implements HouseInfoDao{
+	QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 	/**
 	 * 根据房屋id获取房屋信息，查不到返回null
 	 */
 	@Override
 	public List<HouseInfo> getHouseInfoByHouseId(int id) {
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 		String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info WHERE house_id=? ";
 		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(
 				HouseInfo.class);
@@ -35,7 +35,6 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	 */
 	@Override
 	public List<HouseInfo> getHouseInfoByHouseTypeId(int id) {
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 		String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info WHERE house_type_id=? ";
 		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(
 				HouseInfo.class);
@@ -52,7 +51,6 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	 */
 	@Override
 	public List<HouseInfo> getHouseInfoByResidentId(int id) {
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 		String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info WHERE resident_id=? ";
 		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(
 				HouseInfo.class);
@@ -69,7 +67,6 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	 */
 	@Override
 	public int addHouseInfo(HouseInfo c) {
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 		String sql = "INSERT INTO house_info VALUES(?,?,?,?,?,?)";
 		try {
 			return qr.update(sql,c.getHouseId(),c.getBuilding(),c.getFloor(),c.getRoom(),c.getHouseTypeId(),c.getResidentId());
@@ -84,7 +81,6 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	 */
 	@Override
 	public int delHouseInfoById(int id) {
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 		String sql = "DELETE FROM house_info WHERE house_id=?";
 		try {
 			return qr.update(sql, id);
@@ -99,7 +95,6 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	 */
 	@Override
 	public int updateHouseInfo(HouseInfo c) {
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 		String sql = "UPDATE house_info SET house_id=?,building=?,FLOOR=?,room=?,house_type_id=?,resident_id=? WHERE house_id=?";
 		try {
 			return qr.update(sql,c.getHouseId(),c.getBuilding(),c.getFloor(),c.getRoom(),c.getHouseTypeId(),c.getResidentId(),c.getHouseId());
@@ -114,9 +109,7 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	 */
 	@Override
 	public List<HouseInfo> getAllHouseInfo() {
-		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(
-				HouseInfo.class);
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
+		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(HouseInfo.class);
 		String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info";
 
 		try {
@@ -133,9 +126,7 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	 */
 	@Override
 	public List<HouseInfo> getHouseInfoLikeHouseType(String type) {
-		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(
-				HouseInfo.class);
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
+		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(HouseInfo.class);
 		String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info WHERE house_type_id IN( SELECT house_type_id houseTypeId FROM house_type WHERE house_type_name like concat('%',?,'%'))";
 
 		try {
@@ -153,7 +144,6 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	public List<HouseInfo> getHouseInfoByResident(boolean flag) {
 		String sql;
 		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(HouseInfo.class);
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 		String sql1 = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info WHERE resident_id IS NULL";
 		String sql2 = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info WHERE resident_id IS NOT NULL";
 		if (flag) {
@@ -175,7 +165,6 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	 */
 	@Override
 	public List<HouseInfo> getHouseInfoByFloor(int floor) {
-		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 		String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info WHERE FLOOR=? ";
 		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(
 				HouseInfo.class);
@@ -186,5 +175,23 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 		}
 		return null;
 	}
+	@Override
+	public List<HouseInfo> getHouseInfoAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	@Override//查询出租的房子的信息，多表查询（PersonOwnerInfo，HouseInfo）（无输入，返回HouseInfo信息）
+	public List<HouseInfo> getHouseInfoBychuzu() {
+		String sql = "SELECT  house_id AS houseId,building,FLOOR,room,house_type_id AS houseTypeId,house_info.resident_id AS residentId "
+				+ "FROM house_info INNER JOIN person_owner_info ON house_info.resident_id = person_owner_info.resident_id"
+				+ " WHERE person_owner_info.owner_id IN (SELECT owner_id FROM person_renter_info)";
+		try {
+			return qr.query(sql, new BeanListHandler<HouseInfo>(HouseInfo.class));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }
