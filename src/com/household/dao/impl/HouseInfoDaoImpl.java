@@ -10,9 +10,11 @@ import com.household.dao.HouseInfoDao;
 import com.household.pojo.HouseInfo;
 import com.household.util.C3P0Utils;
 
+public class HouseInfoDaoImpl implements HouseInfoDao {
+	
+	//创建  DBUtils 操作数据库的对象  (需要给定 数据源)
+    QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 
-public class HouseInfoDaoImp implements HouseInfoDao{
-	QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
 	/**
 	 * 根据房屋id获取房屋信息，查不到返回null
 	 */
@@ -177,15 +179,6 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	@Override
 	public List<HouseInfo> getHouseInfoAll() {
 		// TODO Auto-generated method stub
-		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(HouseInfo.class);
-		String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info";
-
-		try {
-			return qr.query(sql, handler);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 		return null;
 	}
 

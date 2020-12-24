@@ -6,20 +6,17 @@ import com.household.dao.HouseInfoDao;
 import com.household.dao.PersonOwnerInfoDao;
 import com.household.dao.PersonRenterInfoAllDao;
 import com.household.dao.PersonRenterInfoDao;
-import com.household.dao.PersonResidentInfoAllDao;
 import com.household.dao.PersonResidentInfoDao;
 import com.household.dao.impl.HouseInfoDaoImpl;
 import com.household.dao.impl.PersonOwnerInfoDaoImpl;
 import com.household.dao.impl.PersonRenterInfoAllDaoImpl;
 import com.household.dao.impl.PersonRenterInfoDaoImpl;
-import com.household.dao.impl.PersonResidentInfoAllDaoImpl;
 import com.household.dao.impl.PersonResidentInfoDaoImpl;
 import com.household.pojo.HouseInfo;
 import com.household.pojo.PersonOwnerInfo;
 import com.household.pojo.PersonRenterInfo;
 import com.household.pojo.PersonRenterInfoAll;
 import com.household.pojo.PersonResidentInfo;
-import com.household.pojo.PersonResidentInfoAll;
 import com.household.service.PersonManagerService;
 
 public class PersonManagerServiceImpl implements PersonManagerService {
