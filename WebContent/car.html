@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta charset="utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Dashboard Template for Bootstrap</title>
+		<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header id="header">
+			<a href="javascript:history.back(-1)"><img class="headleft" src="images\backjt.png"></a>
+			<a href="index.html"><span class="center">智慧社区</span></a>
+			<a href="###" class="rt_searchIcon"><img class="headright" src="images\search.png"></a>
+		</header>
+		<div class="container-fluid theme-showcase" id="app" v-cloak>
+		 <div class="row">
+		   <div class="col-sm-12">
+			 <h2 class="sub-header person-header">车辆信息</h2>
+		     <table class="table table-bordered car-table">
+		       <thead>
+		         <tr>
+		           <th>车辆ID </th>
+		           <th>车牌 </th>
+				   <th>操作</th>
+		         </tr>
+				 
+				 <tr>
+				   <td>sss</td>
+				   <td>sss</td>
+				   <td></td>
+				 </tr>
+				 <tr>
+				   <td>sss</td>
+				   <td>sss</td>
+				   <td></td>
+				 </tr>
+		       </thead>
+		       <tbody v-for="item in car">
+		         <tr>
+		           <td>{{item.carid}}</td>
+		           <td>{{item.plate}}</td>
+				   <td>
+					   <button class="button">修改</button>
+				   </td>
+		         </tr>
+		       </tbody>
+		     </table>
+		   </div>
+		</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="dist/js/bootstrap.min.js"></script>
+	<script src="assets/js/vendor/holder.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script>
+			  var vm=new Vue({
+				  el:"#app",
+				  data:{
+					  car:[{
+						  carid:1,
+						  plate:'浙A000000'
+					  },{
+						  carid:2,
+						  plate:'浙A111111'
+					  }]
+						
+						
+				  },
+				  methods:{
+					  ammeter:function(){
+						 
+					  },
+					  watermeter:function(){
+						  
+					  },
+					  gasmeter:function(){
+						  
+					  }
+				  },
+				  mounted() {
+				  	
+				  }
+			  });
+	</script>
+</html>

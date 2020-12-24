@@ -369,7 +369,7 @@ public class Test2 {
 	public void test30(){
 		StareManagerService sm = new StareManagerServiceImpl();
 		
-		List<StareInfoAll> list = sm.getStareInfoAllByBetween(2000, 3000);
+		List<StareInfoAll> list = sm.getStareInfoAllByBetween(20, 3000);
 		for (StareInfoAll ss : list) {
 			System.out.println(ss);
 		}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta charset="utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Dashboard Template for Bootstrap</title>
+		<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header id="header">
+			<a href="javascript:history.back(-1)"><img class="headleft" src="images\backjt.png"></a>
+			<a href="index.html"><span class="center">智慧社区</span></a>
+			<a href="###" class="rt_searchIcon"><img class="headright" src="images\search.png"></a>
+		</header>
+		<div class="container-fluid theme-showcase" id="app" v-cloak>
+		 <div class="row">
+		   <div class="col-sm-12">
+			 <h2 class="sub-header person-header">房屋信息</h2>
+		     <table class="table table-bordered car-table">
+		       <thead>
+		         <tr>
+		           <th>房屋ID</th>
+		           <th>{{houseid}}</th>
+				   <th>位置</th>
+				   <th>{{louhao}}楼{{cenggao}}层{{mengpai}}室</th>
+		         </tr>
+				 <tr>
+				   <td>户型</td>
+				   <td>{{type}}</td>
+				   <td>住户ID</td>
+				   <td>{{resdentid}}</td>
+				 </tr>
+				 <tr>
+					 <td colspan="4">车位</td>
+				 </tr>
+				 <tr>
+					 <td >位置</td>
+					 <td >{{parkingloction}}</td>
+					 <td >租金</td>
+					 <td >{{rent}}</td>
+				 </tr>
+				 <tr>
+				 	<td >开始时间</td>
+				 	<td >{{starttime}}</td>
+				 	<td >结束时间</td>
+				 	<td >{{endtime}}</td>
+				 </tr>
+		       </thead>
+		       <!-- <tbody v-for="item in car">
+		         <tr>
+		           <td>{{item.carid}}</td>
+		           <td>{{item.plate}}</td>
+				   <td></td>
+				   <td>
+					   <button class="button">修改</button>
+				   </td>
+		         </tr>
+		       </tbody> -->
+		     </table>
+		   </div>
+		</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="dist/js/bootstrap.min.js"></script>
+	<script src="assets/js/vendor/holder.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script>
+			  var vm=new Vue({
+				  el:"#app",
+				  data:{
+					  houseid:1,
+					  louhao:1,
+					  cenggao:1,
+					  mengpai:'11',
+					  type:'大户型',
+					  resdentid:1,
+					  parkingloction:'地上',
+					  rent:500,
+					  starttime:'2000-10-10',
+					  endtime:'2010-10-10'
+				  },
+				  methods:{
+					  ammeter:function(){
+						 
+					  },
+					  watermeter:function(){
+						  
+					  },
+					  gasmeter:function(){
+						  
+					  }
+				  },
+				  mounted() {
+				  	
+				  }
+			  });
+	</script>
+</html>

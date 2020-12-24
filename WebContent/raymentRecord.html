@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Dashboard Template for Bootstrap</title>
+		<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet" />
+	</head>
+	<style >
+		
+		
+	</style>
+	<body>
+		<header id="header">
+			<a href="javascript:history.back(-1)"><img class="headleft" src="images\backjt.png"></a>
+			<a href="index.html"><span class="center">智慧社区</span></a>
+			<a href="###" class="rt_searchIcon"><img class="headright" src="images\search.png"></a>
+		</header>
+	  <div class="container-fluid">
+	    <div class="row">
+			<div class="from">
+				<form class="navbar-form navbar-right">
+					<label></label>
+					<input type="text" class="form-control" placeholder="Search...">
+					<button type="button" class="btn btn-info">搜索</button>
+				</form>
+			</div>
+	      <div class="col-sm-12  col-md-12  main">
+	        <h2 class="sub-header">水电燃气物业缴费记录</h2>
+			
+	        <div class="table-responsive" id="app">
+	          <table class="table table-striped">
+	            <thead>
+	              <tr>
+	                <th>序号</th>
+	                <th>缴费类型</th>
+	                <th>金额</th>
+	                <th>缴费时间</th>
+	                <th>业主ID</th>
+	              </tr>
+	            </thead>
+	            <tbody>
+	              <tr>
+	                <td>1,001</td>
+	                <td>Lorem</td>
+	                <td>ipsum</td>
+	                <td>dolor</td>
+	                <td>sit</td>
+	              </tr>
+				  <tr v-for="item in object">
+					  <td>{{item.id}}</td>
+					  <td>{{item.Type}}</td>
+					  <td>{{item.money}}</td>
+					  <td>{{item.time}}</td>
+					  <td>{{item.ownerID}}</td>
+				  </tr>
+	              </tr>
+	            </tbody>
+	          </table>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <script src="js/jquery-1.12.4.js"></script>
+	  <script src="dist/js/bootstrap.min.js"></script>
+	  <script src="assets/js/vendor/holder.min.js"></script>
+	  <script src="js/vue.js"></script>
+	  <script>
+		  var vm=new Vue({
+			  el:"#app",
+			  data:{
+				  object:[{
+					  id:1,
+					  Type:'q',
+					  money:0,
+					  time:'3',
+					  ownerID:1
+				  },{
+					  id:2,
+					  Type:'q',
+					  money:0,
+					  time:'3',
+					  ownerID:2
+				  }]
+				  
+			  },
+			  methods:{
+				  ammeter:function(){
+					 
+				  },
+				  watermeter:function(){
+					  
+				  },
+				  gasmeter:function(){
+					  
+				  }
+			  },
+			  mounted() {
+			  	
+			  }
+			  
+		  });
+	  </script>
+	</body>
+</html>
