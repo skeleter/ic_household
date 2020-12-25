@@ -14,6 +14,8 @@ import com.household.pojo.PersonOwnerInfo;
 import com.household.pojo.PersonRenterInfo;
 import com.household.pojo.PersonRenterInfoAll;
 import com.household.pojo.PersonResidentInfo;
+import com.household.pojo.PropertyArrearsData;
+import com.household.pojo.PropertyCostsData;
 import com.household.pojo.PropertyEmpalyeesPositon;
 import com.household.pojo.PropertyEmplayeesInfo;
 import com.household.pojo.StareInfo;
@@ -23,11 +25,13 @@ import com.household.service.AdInfoManagerService;
 import com.household.service.EmployeeManangerSrevice;
 import com.household.service.EquipmentManagerService;
 import com.household.service.PersonManagerService;
+import com.household.service.PropertyCostsManagerService;
 import com.household.service.StareManagerService;
 import com.household.service.impl.AdInfoManagerServiceImpl;
 import com.household.service.impl.EmployeeManangerSreviceImp;
 import com.household.service.impl.EquipmentManagerServiceImpl;
 import com.household.service.impl.PersonManagerServiceImpl;
+import com.household.service.impl.PropertyCostsManagerServiceImpl;
 import com.household.service.impl.StareManagerServiceImpl;
 
 public class Test2 {
@@ -540,8 +544,174 @@ public class Test2 {
 		System.out.println(pr);
 	}
 	
+	@Test
+	public void test48() throws Exception{
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		PropertyCostsData data = new PropertyCostsData();
+		data.setHouseId(2);
+		data.setResidentId(2);
+		data.setPropertyCosts(Float.valueOf(2000));
+		data.setOwnerId(2);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		data.setPaymentTime(format.parse("2020-03-01"));
+		
+		boolean flag = pc.addPropertyCostsData(data);
+		System.out.println(flag);
+		
+	}
 	
+	@Test
+	public void test49() {
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		boolean flag = pc.delPropertyCostsData(3);
+		System.out.println(flag);
+		
+	}
 	
+	@Test
+	public void test50() throws Exception{
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		PropertyCostsData data = new PropertyCostsData();
+		data.setCostsId(1);
+		data.setHouseId(1);
+		data.setResidentId(1);
+		data.setPropertyCosts(Float.valueOf(1000));
+		data.setOwnerId(1);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		data.setPaymentTime(format.parse("2020-03-01"));
+		
+		boolean flag = pc.updatePropertyCostsData(data);
+		System.out.println(flag);
+		
+	}
+	
+	@Test
+	public void test51(){
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		List<PropertyCostsData> list = pc.getPropertyCostsDataAll();
+		for (PropertyCostsData propertyCostsData : list) {
+			System.out.println(propertyCostsData);
+		}
+		
+	}
+	
+	@Test
+	public void test52(){
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		List<PropertyCostsData> list = pc.getPropertyCostsDataByTime("2010-01-01", "2021-01-01");
+		for (PropertyCostsData propertyCostsData : list) {
+			System.out.println(propertyCostsData);
+		}
+		
+	}
+	
+	@Test
+	public void test53(){
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		List<PropertyCostsData> list = pc.getPropertyCostsDataByResidentId(1);
+		for (PropertyCostsData propertyCostsData : list) {
+			System.out.println(propertyCostsData);
+		}
+		
+	}
+	
+	@Test
+	public void test54(){
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		List<PropertyCostsData> list = pc.getPropertyCostsDataByHouseId(1);
+		for (PropertyCostsData propertyCostsData : list) {
+			System.out.println(propertyCostsData);
+		}
+		
+	}
+	
+	@Test
+	public void test55() throws ParseException{
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		PropertyArrearsData data = new PropertyArrearsData();
+		data.setHouseId(2);
+		data.setResidentId(2);
+		data.setPropertyArrears(Float.valueOf(2000));
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		data.setPropertyTime(format.parse("2020-03-01"));
+		
+		boolean flag = pc.addPropertyArrearsData(data);
+		System.out.println(flag);
+	}
+	
+	@Test
+	public void test56() {
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		boolean flag = pc.delPropertyArrearsData(2);
+		System.out.println(flag);
+	}
+	
+	@Test
+	public void test57() throws ParseException{
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		PropertyArrearsData data = new PropertyArrearsData();
+		data.setArrearsId(1);
+		data.setHouseId(1);
+		data.setResidentId(1);
+		data.setPropertyArrears(Float.valueOf(1000));
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		data.setPropertyTime(format.parse("2020-03-01"));
+		
+		boolean flag = pc.updatePropertyArrearsData(data);
+		System.out.println(flag);
+	}
+	
+	@Test
+	public void test58() {
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		List<PropertyArrearsData> list = pc.getPropertyArrearsDataByTime("2010-01-01", "2021-01-01");
+		for (PropertyArrearsData propertyArrearsData : list) {
+			System.out.println(propertyArrearsData);
+		}
+	}
+	
+	@Test
+	public void test59() {
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		List<PropertyArrearsData> list = pc.getPropertyArrearsDataByResidentId(1);
+		for (PropertyArrearsData propertyArrearsData : list) {
+			System.out.println(propertyArrearsData);
+		}
+	}
+	
+	@Test
+	public void test60() {
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		List<PropertyArrearsData> list = pc.getPropertyArrearsDataByHouseId(1);
+		for (PropertyArrearsData propertyArrearsData : list) {
+			System.out.println(propertyArrearsData);
+		}
+	}
+	
+	@Test
+	public void test61() {
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		Float data = pc.countPropertyArrearsData();
+		System.out.println(data);
+	}
+	
+	@Test
+	public void test62() {
+		PropertyCostsManagerService pc = new PropertyCostsManagerServiceImpl(); 
+		
+		Float data = pc.countPropertyArrearsDataByresidentId(1);
+		System.out.println(data);
+	}
 	
 	
 	

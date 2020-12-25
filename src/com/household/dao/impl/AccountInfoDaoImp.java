@@ -10,6 +10,7 @@ import org.apache.commons.dbutils.handlers.ArrayListHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
+import org.junit.Test;
 
 import com.household.dao.AccountInfoDao;
 import com.household.pojo.AccountInfo;
@@ -57,7 +58,6 @@ public class AccountInfoDaoImp implements AccountInfoDao{
 		return null;
 		
 	}
-	
 	
 	/**
 	 * @author ty
