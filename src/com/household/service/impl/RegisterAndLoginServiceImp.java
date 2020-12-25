@@ -1,5 +1,7 @@
 package com.household.service.impl;
 
+import org.junit.Test;
+
 import com.household.dao.AccountInfoDao;
 import com.household.dao.impl.AccountInfoDaoImp;
 import com.household.pojo.AccountInfo;
@@ -76,7 +78,10 @@ private AccountInfoDao aii= new AccountInfoDaoImp();
 			return null;
 		}
 	}
-
-	
+	@Test
+	public void test(){
+		boolean b=isUnameAndPassWordRight(new AccountInfo(1,"小明","123456","xxx"));
+		System.out.println(b);
+	}
 
 }
