@@ -58,6 +58,11 @@ public class AccountInfoDaoImp implements AccountInfoDao{
 		return null;
 		
 	}
+	@Test
+	public void test(){
+		boolean b=getAccountInfoByUserNameAndPassWord("小明","123456")!=null;
+		System.out.println(b);
+	}
 	
 	/**
 	 * @author ty
