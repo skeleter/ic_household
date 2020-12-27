@@ -5,6 +5,9 @@ import java.util.Date;
 public class PropertyArrearsData {
     private Integer houseId;
     private Integer arrearsId;
+    private Integer residentId;
+    private Float propertyArrears;
+    private Date propertyTime;
     
 	/**  
 	 * @title: getArrearsId
@@ -25,11 +28,7 @@ public class PropertyArrearsData {
 		this.arrearsId = arrearsId;
 	}
 
-	private Integer residentId;
-
-    private Float propertyArrears;
-
-    private Date propertyTime;
+	
 
     public Integer getHouseId() {
         return houseId;

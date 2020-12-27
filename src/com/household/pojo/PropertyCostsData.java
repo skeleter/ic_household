@@ -5,6 +5,10 @@ import java.util.Date;
 public class PropertyCostsData {
     private Integer houseId;
     private Integer costsId;
+    private Integer residentId;
+    private Float propertyCosts;
+    private Integer ownerId;
+    private Date paymentTime;
     
 	/**  
 	 * @title: getCostsId
@@ -25,13 +29,7 @@ public class PropertyCostsData {
 		this.costsId = costsId;
 	}
 
-	private Integer residentId;
-
-    private Float propertyCosts;
-
-    private Integer ownerId;
-
-    private Date paymentTime;
+	
 
     public Integer getHouseId() {
         return houseId;

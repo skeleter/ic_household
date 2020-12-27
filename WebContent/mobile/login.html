@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<meta name="viewport" content="width=device-width,intical-scale=1.0,minimum-scale=1.0,user-scalable=no">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css\swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css"/>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<script src="js/axios.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<header id="header">
+			<a href="javascript:history.back(-1)"><img class="headleft" src="images\backjt.png"></a>
+			<span class="center">智慧社区</span>
+			<a href="###" class="rt_searchIcon"><img class="headright" src="images\search.png"></a>
+		</header>
+		<div id="app">
+		        <div class="login-content">
+		
+		            <div class="content_input">
+		                <div class="title">
+		                    <p>登录</p>
+		                </div>
+		                <el-input v-model="UserName" clearable="" placeholder="用户名"></el-input>
+		                <el-input v-model="PassWord" clearable="" show-password="" placeholder="密码"></el-input>
+		                <div class="content_button">
+		                    <el-button type="primary" @click="SignIn">登录</el-button>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		
+		
+		<script type="text/javascript" src="js\ribbon.js"></script>
+		<!-- 先引入 Vue -->
+		<script type="text/javascript" src="js\vue.js"></script>
+		<!-- 引入组件库 -->
+		<script type="text/javascript" src="js\index.js"></script>
+		<script type="text/javascript">
+		    new Vue({
+		        el: '#app',
+		        data:{
+		            UserName: 'qwe',
+		            PassWord: 'qwe'
+		        },
+		        methods: {
+		        	errored:function(){
+		        		this.$notify.error({
+	                        title: '错误',
+	                        message: '密码错误'
+	                    });
+		        		this.PassWord='';
+					},
+					successed:function(){
+						this.$message({
+						    message: '恭喜你，通过了！',
+						    type:'success'
+						});
+						//setTimeout(() => {
+							this.$Router.push(index.html);
+						//}, 2000);
+					},
+					check:function(cname,cpwd){
+						var that=this;
+						var ck=null;
+						axios.get('text',{
+							params:{
+								name:cname,
+								pwd:cpwd
+							}
+						}).then(function(ret){
+							ck=new Boolean(ret.data);
+							if(ck==false){
+								that.errored();
+							}else if(ck!=false){
+								that.successed();
+							}
+						});
+					},
+		            SignIn:function(){
+						var name=this.UserName;
+						var pwd=this.PassWord;
+		                if (!name) {
+		                    this.$notify.error({
+		                        title: '错误',
+		                        message: '用户名不能为空'
+		                    });
+		                    return;
+		                } else if (!pwd) {
+		                    this.$notify.error({
+		                        title: '错误',
+		                        message: '密码不能为空'
+		                    });
+		                    return;
+		                } else {
+		                	this.check(name,pwd);
+		                   // setTimeout(() => {
+		                     //   this.$notify({
+		                     //       title: '没得办法就这一页',
+		                     //       message: '自己点 “X” 吧！',
+		                     //       position: 'top-left'
+		                    //    });
+		                    //}, 2000);
+		                }
+		            }
+		        },
+				mounted:{
+					
+				}
+		    })
+		</script>
+	</body>
+</html>

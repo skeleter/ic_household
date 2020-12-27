@@ -1,4 +1,10 @@
 package com.household.service;
+
+import java.util.List;
+
+import com.household.pojo.PropertyArrearsData;
+import com.household.pojo.PropertyCostsData;
+
 /**
  *对propertyCosts表进行操作，实现对物业费用的增删改查
  *需要写的方法：
@@ -22,9 +28,54 @@ package com.household.service;
  ****修改删除相应表的接口Dao内的方法，并在impl包内实现
  ****将查询方法写入公共查询接口Dao内，并在impl包内实现，切记不要修改和删除其内部方法，防止其他功能无法实现
  ****在每个方法前写备注，明确方法用途，写完备注时间和姓名
- * 时间：
- * 姓名：
+ * 时间：12月25日
+ * 姓名：彭杰
  */
 public interface PropertyCostsManagerService {
-
+	
+	//物业费缴费记录增加（输入PropertyCostsData对象，返回布尔类型）
+	boolean addPropertyCostsData(PropertyCostsData pcd);
+	
+	//物业费缴费记录删除（输入ID(int),返回布尔类型）
+	boolean delPropertyCostsData(int id);
+	
+	//物业缴费记录修改（输入PropertyCostsData对象，返回布尔类型）
+	boolean updatePropertyCostsData(PropertyCostsData pcd);
+	
+	//全部物业缴费记录查询（无输入，返回List<PropertyCostsData>)
+	List<PropertyCostsData> getPropertyCostsDataAll();
+	
+	//按照一定时间区间查询缴费记录（输入String，String，返回List<PropertyCostsData>)
+	List<PropertyCostsData> getPropertyCostsDataByTime(String time1, String time2);
+	
+	//按照住户ID查询缴费记录（输入ID（int），返回List<PropertyCostsData>)
+	List<PropertyCostsData> getPropertyCostsDataByResidentId(int id);
+	
+    //按照房屋ID查询缴费记录（输入ID（int），返回List<PropertyCostsData>)
+	List<PropertyCostsData> getPropertyCostsDataByHouseId(int id);
+	
+	//物业费欠费记录增加（输入PropertyArrearsData对象，返回布尔类型）
+	boolean addPropertyArrearsData(PropertyArrearsData pa);
+	
+	//物业费欠费记录删除（输入ID(int),返回布尔类型）
+	boolean delPropertyArrearsData(int id);
+	
+	//物业欠费记录修改（输入PropertyArrearsData对象，返回布尔类型）
+	boolean updatePropertyArrearsData(PropertyArrearsData pa);
+	
+	//通过欠费时间段查询欠费记录（输入String，String，返回List<PropertyArrearsData>)
+	List<PropertyArrearsData> getPropertyArrearsDataByTime(String time1, String time2);
+	
+	//按照住户ID查询缴费记录（输入ID（int），返回List<PropertyArrearsData>)
+	List<PropertyArrearsData> getPropertyArrearsDataByResidentId(int id);
+	
+	//按照房屋ID查询缴费记录（输入ID（int），返回List<PropertyArrearsData>)
+	List<PropertyArrearsData> getPropertyArrearsDataByHouseId(int id);
+	
+	//计算物业费欠费总计（无输入，返回float）
+	Float countPropertyArrearsData();
+	
+	//按住户计算物业费欠费总计（输入ID（int），返回float）
+	Float countPropertyArrearsDataByresidentId(int id);
+	
 }
