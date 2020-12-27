@@ -80,7 +80,9 @@ private AccountInfoDao aii= new AccountInfoDaoImp();
 	}
 	@Test
 	public void test(){
-		boolean b=isUnameAndPassWordRight(new AccountInfo(1,"小明","123456","xxx"));
+		AccountInfo a=new AccountInfo(1,"10086","123456","xxx");
+		System.out.println(a.getUserName()+a.getUserPassword());
+		boolean b=isUnameAndPassWordRight(a);
 		System.out.println(b);
 	}
 

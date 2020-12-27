@@ -40,12 +40,13 @@ public class Text extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out= response.getWriter();
 		RegisterAndLoginService ral=new RegisterAndLoginServiceImp();
-		if(ral.isUnameAndPassWordRight( new AccountInfo())){
+		if(ral.isUnameAndPassWordRight(new AccountInfo(1,name,pwd,"xxxx"))){
+			System.out.println("true");
 			out.write("true");
 		}else{
+			System.out.println("false");
 			out.write("false");
 		}
-			
 		out.flush();
 		out.close();
 	}

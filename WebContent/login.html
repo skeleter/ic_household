@@ -49,20 +49,37 @@
 		            PassWord: 'qwe'
 		        },
 		        methods: {
+		        	errored:function(){
+		        		this.$notify.error({
+	                        title: '错误',
+	                        message: '密码错误'
+	                    });
+		        		this.PassWord='';
+					},
+					successed:function(){
+						this.$message({
+						    message: '恭喜你，通过了！',
+						    type:'success'
+						});
+						//setTimeout(() => {
+							this.$Router.push(index.html);
+						//}, 2000);
+					},
 					check:function(cname,cpwd){
+						var that=this;
+						var ck=null;
 						axios.get('text',{
 							params:{
 								name:cname,
 								pwd:cpwd
 							}
 						}).then(function(ret){
-							var ck=new Boolean(ret.data);
-							if(ck){
-								alert("oooo");
-							}else{
-								alert("xxxx");
+							ck=new Boolean(ret.data);
+							if(ck==false){
+								that.errored();
+							}else if(ck!=false){
+								that.successed();
 							}
-							return ck;
 						});
 					},
 		            SignIn:function(){
@@ -81,19 +98,14 @@
 		                    });
 		                    return;
 		                } else {
-							if(this.check(name,pwd)){
-								this.$message({
-								    message: '恭喜你，通过了！',
-								    type: 'success'
-								});
-							}
-		                    setTimeout(() => {
-		                        this.$notify({
-		                            title: '没得办法就这一页',
-		                            message: '自己点 “X” 吧！',
-		                            position: 'top-left'
-		                        });
-		                    }, 2000)
+		                	this.check(name,pwd);
+		                   // setTimeout(() => {
+		                     //   this.$notify({
+		                     //       title: '没得办法就这一页',
+		                     //       message: '自己点 “X” 吧！',
+		                     //       position: 'top-left'
+		                    //    });
+		                    //}, 2000);
 		                }
 		            }
 		        },
