@@ -351,6 +351,44 @@
     }*/
 
 </script>
-
+<!-- <tr >
+			<td><input type="checkbox" value="3" name="" id="che"></td>
+			<td>1</td><td>1</td><td>1</td><td>102</td><td>xxx</td>
+			<td>是</td>
+			<td class="td-manage">
+				<a title="编辑" href="javascript:;" onclick="home_edit('编辑','homeadd.html','3','1000','600')" class="ml-5" style="text-decoration:none"><i class="layui-icon">&#xe642;</i></a>
+				<a title="删除" href="javascript:;" onclick="question_del(this,'1')" style="text-decoration:none"><i class="layui-icon">&#xe640;</i></a>
+			</td>
+		</tr> -->
+		<script src="js/jquery.min.js" type="text/javascript"></script>
+		<script>
+		function gethouseinfo(){
+			$.getJSON(
+					"gethouseinfo",
+					function(data){
+						$(data).each(function(index,obj){
+							var houseId=obj.houseId;
+							var building=obj.building;
+							var floor=obj.floor;
+							var room=obj.room;
+							var houseTypeId=obj.houseTypeId;
+							var residentId=obj.residentId;
+							var checkhouse="";
+							var $option ="<tr ><td><input type='checkbox' value="+houseId+" name=''></td>"+
+									"<td>"+houseId+"</td><td>"+building+"</td><td>"+floor+"</td><td>"+room+"</td><td>"+houseTypeId+"</td>"+
+									"<td>"+residentId+"</td>"+
+									"<td class='td-manage'><a title='编辑' href='javascript:;' onclick='home_edit('编辑','homeadd.html','3','1000','600')' class='ml-5' style='text-decoration:none'>"+
+									"<i class='layui-icon'>&#xe642;</i></a>"+
+									"<a title='删除' href='javascript:;' onclick='question_del(this,'1')' style='text-decoration:none'>"+
+									"<i class='layui-icon'>&#xe640;</i></a></td></tr>";	
+							$("#ches").append($option);
+						});
+					}
+				);
+		}
+		window.onload=function(){
+			gethouseinfo();
+		};
+		</script>
 </body>
 </html>
