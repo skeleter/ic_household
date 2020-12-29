@@ -3,6 +3,7 @@ package com.household.service;
 import java.util.List;
 
 import com.household.pojo.HouseInfo;
+import com.household.pojo.HouseInfoAll;
 import com.household.pojo.HouseType;
 
 /**
@@ -50,4 +51,8 @@ public interface HouseInfoMangerService {
 		List<HouseInfo> getHouseInfoLikeHouseType(String type);
 		 //11.对有无房主进行查询（输入布尔类型（有房主为真），返回List<HouseInfo>)
 		List<HouseInfo> getHouseInfoByResident(boolean flag);
+		//对所有房屋信息ALl的查询（无输入，返回List<HouseInfoAll>)
+		List<HouseInfoAll> getAllHouseInfoAll();
+		//对房屋信息是否存在查询（输入ID，返回boolean）
+		boolean getHouseInfoIs(int i);
 }

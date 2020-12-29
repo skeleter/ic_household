@@ -2,18 +2,23 @@ package com.household.service.impl;
 
 import java.util.List;
 
+import org.junit.Test;
+
 import com.household.dao.HouseInfoDao;
 import com.household.dao.HouseTypeDao;
+import com.household.dao.SelectCommentDao;
 import com.household.dao.impl.HouseInfoDaoImp;
 import com.household.dao.impl.HouseTypeDaoImp;
+import com.household.dao.impl.SelectCommentDaoImpl;
 import com.household.pojo.HouseInfo;
+import com.household.pojo.HouseInfoAll;
 import com.household.pojo.HouseType;
 import com.household.service.HouseInfoMangerService;
 
 public class HouseInfoMangerServiceImp implements HouseInfoMangerService {
 	HouseTypeDao htd = new HouseTypeDaoImp();
 	HouseInfoDao hid = new HouseInfoDaoImp();
-
+	SelectCommentDao scd=new SelectCommentDaoImpl();
 	/**
 	 * 1.房屋类型的增加（输入HouseType，返回布尔类型）
 	 */
@@ -135,4 +140,21 @@ public class HouseInfoMangerServiceImp implements HouseInfoMangerService {
 	
 	}
 
+	@Override
+	public List<HouseInfoAll> getAllHouseInfoAll() {
+		// TODO Auto-generated method stub
+		return scd.getAllHouseInfoAll();
+	}
+
+	@Override
+	public boolean getHouseInfoIs(int i) {
+		// TODO Auto-generated method stub
+		List<HouseInfo> flag = scd.getHouseInfoIs(i);
+		if (flag != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }

@@ -27,31 +27,26 @@
                 <div class="layui-tab-item layui-show">
                     <input type="hidden" name="id" value=""/>
 
+                    
                     <div class="layui-form-item">
-                        <label class="layui-form-label">
-                            <span class='x-red'>*</span>所属小区
-                        </label>
-                        <div class="layui-input-block">
-                            <select name="community_id" id="community_id" lay-filter="aihao">
-                                <option value="0">---请选择所属小区---</option>
-                                <option value="1" >东湖小区</option>
-                                <option value="2" >金华万府</option>
-                            </select>
-                        </div>
+						<label class="layui-form-label">
+						    <span class='x-red'>*</span>栋数
+						</label>
+						<div class="layui-input-block">
+						    <input type="text" name="home_number" autocomplete="off" placeholder="请输入数字"
+						           class="layui-input" lay-verify="required|number" value="">
+						</div>
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">
-                            <span class='x-red'>*</span>栋数
-                        </label>
-                        <div class="layui-input-block">
-                            <select name="building_id" id="building_id">
-
-                                <option value="0"></option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
+					<div class="layui-form-item">
+					    <label class="layui-form-label">
+					        <span class='x-red'>*</span>层高
+					    </label>
+					    <div class="layui-input-block">
+					        <input type="text" name="home_floor" autocomplete="off" placeholder="请输入数字"
+					               class="layui-input" lay-verify="required|number" value="">
+					    </div>
+					</div>
+                    <!-- <div class="layui-form-item">
                         <label class="layui-form-label">
                             <span class='x-red'>*</span>房产名称
                         </label>
@@ -59,17 +54,17 @@
                             <input type="text" name="home_name" autocomplete="off" placeholder="空制在80个汉字，160个字符以内"
                                    class="layui-input" value="">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="layui-form-item">
                         <label class="layui-form-label">
-                            <span class='x-red'>*</span>户主名称
+                            <span class='x-red'>*</span>门牌
                         </label>
                         <div class="layui-input-block">
-                            <input type="text" name="householder" autocomplete="off" placeholder=""
-                                   class="layui-input" value="">
+                            <input type="text" name="home_room" autocomplete="off" placeholder="请输入三位数字"
+                                   class="layui-input" lay-verify="required|number" value="">
                         </div>
                     </div>
-                    <div class="layui-form-item">
+                    <!-- <div class="layui-form-item">
                         <label class="layui-form-label">
                             <span class='x-red'>*</span>联系方式
                         </label>
@@ -77,8 +72,8 @@
                             <input type="text" name="phone" autocomplete="off" placeholder=""
                                    class="layui-input" lay-verify="required|phone" value="">
                         </div>
-                    </div>
-                    <div class="layui-form-item">
+                    </div> -->
+                    <!-- <div class="layui-form-item">
                         <label class="layui-form-label">
                             <span class='x-red'>*</span>房间数
                         </label>
@@ -86,26 +81,29 @@
                             <input type="text" name="home_number" autocomplete="off" placeholder=""
                                    class="layui-input" lay-verify="required|number" value="">
                         </div>
-                    </div>
+                    </div> -->
+					<div class="layui-form-item">
+						   <label class="layui-form-label">
+							   <span class='x-red'>*</span>户型
+						   </label>
+						   <div class="layui-input-block">
+							   <select name="building_id" id="building_id">
+					   
+								   <option value="0"></option>
+					   
+							   </select>
+						   </div>
+					</div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">
-                            <span class='x-red'>*</span>单元
+                            住户ID
                         </label>
                         <div class="layui-input-block">
-                            <input type="text" name="unit_building" autocomplete="off" placeholder="请输入数字"
+                            <input type="text" name="resident_id" autocomplete="off" placeholder="请输入数字"
                                    class="layui-input" lay-verify="required|number" value="">
                         </div>
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">
-                            <span class='x-red'>*</span>楼层
-                        </label>
-                        <div class="layui-input-block">
-                            <input type="text" name="floor" autocomplete="off" placeholder="请输入数字"
-                                   class="layui-input" lay-verify="required|number" value="">
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
+                    <!-- <div class="layui-form-item">
                         <label class="layui-form-label">
                             <span class='x-red'>*</span>入住时间
                         </label>
@@ -114,15 +112,27 @@
                             <input class="layui-input" name="rz_time" placeholder="入住时间" id="LAY_demorange_s" value="">
                         </div>
 
-                    </div>
-                    <div class="layui-form-item layui-form-text">
+                    </div> -->
+					<!-- <div class="layui-form-item">
+					    <label class="layui-form-label">
+					        <span class='x-red'>*</span>所属小区
+					    </label>
+					    <div class="layui-input-block">
+					        <select name="community_id" id="community_id" lay-filter="aihao">
+					            <option value="0">---请选择所属小区---</option>
+					            <option value="1" >东湖小区</option>
+					            <option value="2" >金华万府</option>
+					        </select>
+					    </div>
+					</div> -->
+                    <!-- <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">
                             <span class='x-red'>*</span>描述
                         </label>
                         <div class="layui-input-block">
                             <textarea placeholder="请输入内容" name="desc" class="layui-textarea"></textarea>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="layui-form-item">
                         <button class="layui-btn" type="button" lay-filter="add" lay-submit="">
@@ -154,43 +164,37 @@
         form = layui.form();
         okLoading.close($);
         form.render();
-        var start = {
-            min: laydate.now()
-            ,max: '2099-06-16 23:59:59'
-            ,istoday: false
-            ,choose: function(datas){
-                //end.min = datas; //开始日选好后，重置结束日的最小日期
-                //end.start = datas //将结束日的初始值设定为开始日
-            }
-        };
-
-        document.getElementById('LAY_demorange_s').onclick = function(){
-            start.elem = this;
-            laydate(start);
-        };
 
         //监听提交
         form.on('submit(add)', function(data){
-            var home_name=$("input[name='home_name']").val();
-            var householder=$("input[name='householder']").val();
-            if(home_name==""){
-                layer.msg('房产名称不能为空',{icon:5,time:2000});return false;
+            var home_number=$("input[name='home_number']").val();
+            var home_floor=$("input[name='home_floor']").val();
+			var home_room=$("input[name='home_room']").val();
+            if(home_number==""){
+                layer.msg('栋数不能为空',{icon:5,time:2000});return false;
             }
-            if(householder==""){
-                layer.msg('户主名称不能为空',{icon:5,time:2000});return false;
+            if(home_floor==""){
+                layer.msg('层高不能为空',{icon:5,time:2000});return false;
             }
+			if(home_room==""){
+			    layer.msg('门牌不能为空',{icon:5,time:2000});return false;
+			}
             var data=data.field;
             $.ajax({
                 type:"post",
-                url:"/xiyuan/home/add.html",
+                url:"saveHouseInfoServlet",
                 data:data,
-                dataType:"json",
+                dataType:"text",
                 success:function(data)
                 {
-                    //alert(1);
-                    if(data.status==1)
+                    alert(data);
+                    var str= data.split("+");
+        			for (var i = 0; i < str.length; i++) {
+        				alert(str[i]);
+        			}
+                    if(str[0]=="1")
                     {
-                        layer.msg(data.info, {icon: 6,time:2000},function () {
+                        layer.msg(str[1], {icon: 6,time:2000},function () {
                             window.parent.location.reload();
                             var index = parent.layer.getFrameIndex(window.name);
                             parent.layer.close(index);
@@ -199,16 +203,16 @@
 
                     }
                     else{
-                        layer.msg(data.info,{icon:5,time:2000});return false;
+                        layer.msg(str[1],{icon:5,time:2000});return false;
                     }
                 }
 
             });
 
         });
-        form.on('select(aihao)', function(data){
-            communidy();
-        });
+        // form.on('select(aihao)', function(data){
+        //     communidy();
+        // });
         $(function () {
             communidy();
         });
@@ -217,18 +221,17 @@
             var communidy = $("#community_id").val();
 
             $.ajax({
-                url:"/xiyuan/home/building.html",
+                url:"getHouseTypeServlet",
                 type:"post",
                 dataType:"json",
-                data:{communidy:communidy},
                 success:function (data) {
 
                     var dlen =data.length;
                     var str='';
                     for (var i=0;i<dlen;i++){
                         var dt=data[i];
-                        str +='<option value="' + dt.id + '">';
-                        str +=dt.buildings_name;
+                        str +='<option value="' + dt.houseTypeId + '">';
+                        str +=dt.houseTypeName;
                         str +='</option>';
                     }
 
@@ -237,7 +240,15 @@
                     //form.render('#building_id');
 
                 }
-            })
+            });
+			// var str='';
+			// for (var i=0;i<5;i++){
+			// 	str +='<option value="' + i + '">';
+			// 	str +="name_is"+i+"name";
+			// 	str +='</option>';
+			// }
+			// $("#building_id").html(str);
+			// form.render('select', 'aihao');
         }
 
 

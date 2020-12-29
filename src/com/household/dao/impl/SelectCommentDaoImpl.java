@@ -1,14 +1,17 @@
 package com.household.dao.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.junit.Test;
 
 import com.household.dao.SelectCommentDao;
-import com.household.pojo.AdInfo;
 import com.household.pojo.EquipmentInfo;
+import com.household.pojo.HouseInfo;
+import com.household.pojo.HouseInfoAll;
 import com.household.util.C3P0Utils;
 
 public class SelectCommentDaoImpl implements SelectCommentDao {
@@ -51,4 +54,33 @@ public class SelectCommentDaoImpl implements SelectCommentDao {
 		return null;
 	}
 
+	@Override
+	public List<HouseInfoAll> getAllHouseInfoAll() {
+		// TODO Auto-generated method stub
+		BeanListHandler<HouseInfoAll> handler = new BeanListHandler<HouseInfoAll>(HouseInfoAll.class);
+		//String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info";
+		String sql = "SELECT i.`house_id` houseId,i.`building` building,i.`floor` FLOOR,i.`room` room,i.`house_type_id` houseTypeId,i.`resident_id` residentId ,t.`house_type_name` houseTypeName,IF(i.`resident_id` IS NOT NULL,'是','否') AS haven FROM house_info i,house_type t WHERE  i.`house_type_id`=t.`house_type_id`";
+		try {
+			return qr.query(sql, handler);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+
+	@Override
+	public List<HouseInfo> getHouseInfoIs(int i) {
+		// TODO Auto-generated method stub
+		BeanListHandler<HouseInfo> handler = new BeanListHandler<HouseInfo>(HouseInfo.class);
+		String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info i WHERE i.`house_id`=? ";
+		try {
+			return qr.query(sql, i,handler);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }

@@ -67,6 +67,9 @@ public class HouseInfoDaoImp implements HouseInfoDao{
 	@Override
 	public int addHouseInfo(HouseInfo c) {
 		String sql = "INSERT INTO house_info VALUES(?,?,?,?,?,?)";
+		if(c.getHouseId()==0){
+			c.setHouseId(null);
+		}
 		try {
 			return qr.update(sql,c.getHouseId(),c.getBuilding(),c.getFloor(),c.getRoom(),c.getHouseTypeId(),c.getResidentId());
 		} catch (SQLException e) {
