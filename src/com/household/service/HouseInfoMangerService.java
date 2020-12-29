@@ -55,4 +55,10 @@ public interface HouseInfoMangerService {
 		List<HouseInfoAll> getAllHouseInfoAll();
 		//对房屋信息是否存在查询（输入ID，返回boolean）
 		boolean getHouseInfoIs(int i);
+		//对所有房屋信息ALl的typr查询（输入String，返回List<HouseInfoAll>)
+		List<HouseInfoAll> getAllHouseInfoAllByType(String type) ;
+		//对所有房屋信息ALl的层高查询（输入int，返回List<HouseInfoAll>)
+		List<HouseInfoAll> getAllHouseInfoAllByFloor(int floor);
+		//对所有房屋信息All的住户与否查询（输入boolean，返回List<HouseInfoAll>)
+		List<HouseInfoAll> getAllHouseInfoAllByResident(boolean resident);
 }

@@ -156,4 +156,22 @@ public class HouseInfoMangerServiceImp implements HouseInfoMangerService {
 			return false;
 		}
 	}
+
+	@Override
+	public List<HouseInfoAll> getAllHouseInfoAllByType(String type) {
+		// TODO Auto-generated method stub
+		return scd.getAllHouseInfoAllByType(type);
+	}
+
+	@Override
+	public List<HouseInfoAll> getAllHouseInfoAllByFloor(int floor) {
+		// TODO Auto-generated method stub
+		return scd.getAllHouseInfoAllByFloor(floor);
+	}
+
+	@Override
+	public List<HouseInfoAll> getAllHouseInfoAllByResident(boolean resident) {
+		// TODO Auto-generated method stub
+		return scd.getAllHouseInfoAllByResident(resident);
+	}
 }

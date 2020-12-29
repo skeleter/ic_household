@@ -187,11 +187,8 @@
                 dataType:"text",
                 success:function(data)
                 {
-                    alert(data);
+                    //alert(data);
                     var str= data.split("+");
-        			for (var i = 0; i < str.length; i++) {
-        				alert(str[i]);
-        			}
                     if(str[0]=="1")
                     {
                         layer.msg(str[1], {icon: 6,time:2000},function () {
