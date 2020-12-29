@@ -2,6 +2,7 @@ package com.household.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,24 +44,36 @@ public class SaveHouseInfoServlet extends HttpServlet {
 		int homeRoom=Integer.parseInt(request.getParameter("home_room"));
 		int houseTypeId=Integer.parseInt(request.getParameter("building_id"));
 		int residentId=Integer.parseInt(request.getParameter("resident_id"));
-		System.out.println(homeNumber+"-"+homeFloor+"-"+homeRoom+"-"+houseTypeId+"-"+residentId);
+		//System.out.println(homeNumber+"-"+homeFloor+"-"+homeRoom+"-"+houseTypeId+"-"+residentId);
 		PrintWriter out= response.getWriter();
 		//List<HouseInfo> list= new HouseInfoMangerServiceImp().getAllHouseInfo();
 		HouseInfo houseInfo=new HouseInfo(homeId,homeNumber,homeFloor,homeRoom,houseTypeId,residentId);
 		String info="0+操作失败，数据库未连接";
-		if(hims.getHouseInfoIs(houseInfo.getHouseId())){
-			if(hims.updateHouseInfo(houseInfo)){
-				info="1+修改成功";
+		//System.out.println(houseInfo.getHouseId()+""+hims.getHouseInfoIs(houseInfo.getHouseId()));
+		boolean check=true;
+		List<HouseInfo> infoAll=hims.getAllHouseInfo();
+		for (int i=0;i<infoAll.size();i++) {
+			infoAll.get(i).setHouseId(0);
+			if(infoAll.get(i).equals(houseInfo))check=false;
+		}
+		if(check){
+			if(hims.getHouseInfoIs(houseInfo.getHouseId())){
+				if(hims.updateHouseInfo(houseInfo)){
+					info="1+修改成功";
+				}else{
+					info="0+修改失败，需要检查数据";
+				}
 			}else{
-				info="0+修改失败，需要检查数据";
+				if(hims.addHouseInfo(houseInfo)){
+					info="1+添加成功";
+				}else{
+					info="0+添加失败，需要检查数据";
+				}
 			}
 		}else{
-			if(hims.addHouseInfo(houseInfo)){
-				info="1+添加成功";
-			}else{
-				info="0+添加失败，需要检查数据";
-			}
+			info="0+添加失败，已有相同数据";
 		}
+		
 		//out.write(JSON.toJSONString(new HouseInfoMangerServiceImp().getAllHouseInfoAll()));
 		out.write(info);
 		out.flush();

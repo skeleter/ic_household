@@ -151,12 +151,52 @@
                 </a>
             </td>
         </tr> -->
-        
+        <tr>
+			<td><input type="checkbox" value="1" name="" id="che"></td>
+			<td>2</td><td>1</td><td>1</td><td>102</td><td>xxx</td><td>是</td>
+			<td class="td-manage">
+			<a title="编辑" href="javascript:;" onclick="home_edit('编辑','homeadd.html','1','1000','600')" class="ml-5" style="text-decoration:none">
+			<i class="layui-icon">&#xe642;</i></a>
+			<a title="删除" href="javascript:;" onclick="question_del(this,'2')" style="text-decoration:none">
+			<i class="layui-icon">&#xe640;</i></a></td>
+		</tr>
         </tbody>
     </table>
 
     <div id="page"></div>
 </div>
+		<script src="js/jquery.min.js" type="text/javascript"></script>
+		<script>
+		function gethouseinfo(){
+			$.getJSON(
+					"gethouseinfo",
+					function(data){
+						$(data).each(function(index,obj){
+							var houseId=obj.houseId;
+							var building=obj.building;
+							var floor=obj.floor;
+							var room=obj.room;
+							var houseTypeId=obj.houseTypeId;
+							var residentId=obj.residentId;
+							var houseTypeName=obj.houseTypeName;
+							var haven=obj.haven;
+							//var edit="'编辑'";
+							var $option ="<tr ><td><input type='checkbox' value="+houseId+" name=''></td>"+
+									"<td>"+houseId+"</td><td>"+building+"</td><td>"+floor+"</td><td>"+room+"</td><td>"+houseTypeName+"</td>"+
+									"<td>"+haven+"</td>"+
+									"<td class='td-manage'><a title='编辑' href='javascript:;' onclick='home_edit('编辑','homeadd.html',"+houseId+",1000,600)' class='ml-5' style='text-decoration:none'>"+
+									"<i class='layui-icon'>&#xe642;</i></a>"+
+									"<a title='删除' href='javascript:;' onclick='question_del(this,"+houseId+")' style='text-decoration:none'>"+
+									"<i class='layui-icon'>&#xe640;</i></a></td></tr>";	
+							$("#ches").append($option);
+						});
+					}
+				);
+		}
+		window.onload=function(){
+			gethouseinfo();
+		};
+		</script>
 <script src="lib/layui/layui.js" charset="utf-8"></script>
 <script src="js/x-layui.js" charset="utf-8"></script>
 <script>
@@ -221,13 +261,20 @@
     }
 
     /*删除*/
-    function question_del(obj,id){
-        layer.confirm('确认要删除吗？',function(index){
-            //发异步删除数据
-            $(obj).parents("tr").remove();
-            layer.msg('已删除!',{icon:1,time:1000});
-        });
-    }
+    function question_del(obj, id) {
+				layer.confirm('确认要删除吗？', function(index) {
+					alert(id);
+					$.get(
+						"delHouseInfoServlet",
+						{id:id}
+					);
+					$(obj).parents("tr").remove();
+					layer.msg('已删除!', {
+						icon: 1,
+						time: 1000
+					});
+				});
+			}
 
 
 
@@ -284,37 +331,6 @@
 				<a title="删除" href="javascript:;" onclick="question_del(this,'1')" style="text-decoration:none"><i class="layui-icon">&#xe640;</i></a>
 			</td>
 		</tr> -->
-		<script src="js/jquery.min.js" type="text/javascript"></script>
-		<script>
-		function gethouseinfo(){
-			$.getJSON(
-					"gethouseinfo",
-					function(data){
-						$(data).each(function(index,obj){
-							var houseId=obj.houseId;
-							var building=obj.building;
-							var floor=obj.floor;
-							var room=obj.room;
-							var houseTypeId=obj.houseTypeId;
-							var residentId=obj.residentId;
-							var houseTypeName=obj.houseTypeName;
-							var haven=obj.haven;
-							var checkhouse="";
-							var $option ="<tr ><td><input type='checkbox' value="+houseId+" name=''></td>"+
-									"<td>"+houseId+"</td><td>"+building+"</td><td>"+floor+"</td><td>"+room+"</td><td>"+houseTypeName+"</td>"+
-									"<td>"+haven+"</td>"+
-									"<td class='td-manage'><a title='编辑' href='javascript:;' onclick='home_edit('编辑','homeadd.html','3','1000','600')' class='ml-5' style='text-decoration:none'>"+
-									"<i class='layui-icon'>&#xe642;</i></a>"+
-									"<a title='删除' href='javascript:;' onclick='question_del(this,'1')' style='text-decoration:none'>"+
-									"<i class='layui-icon'>&#xe640;</i></a></td></tr>";	
-							$("#ches").append($option);
-						});
-					}
-				);
-		}
-		window.onload=function(){
-			gethouseinfo();
-		};
-		</script>
+
 </body>
 </html>

@@ -150,11 +150,10 @@ public class HouseInfoMangerServiceImp implements HouseInfoMangerService {
 	public boolean getHouseInfoIs(int i) {
 		// TODO Auto-generated method stub
 		List<HouseInfo> flag = scd.getHouseInfoIs(i);
-		if (flag != null) {
+		if (flag.equals(null)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
 }
