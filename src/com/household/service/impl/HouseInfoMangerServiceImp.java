@@ -162,7 +162,7 @@ public class HouseInfoMangerServiceImp implements HouseInfoMangerService {
 		// TODO Auto-generated method stub
 		return scd.getAllHouseInfoAllByType(type);
 	}
-
+	
 	@Override
 	public List<HouseInfoAll> getAllHouseInfoAllByFloor(int floor) {
 		// TODO Auto-generated method stub
@@ -173,5 +173,12 @@ public class HouseInfoMangerServiceImp implements HouseInfoMangerService {
 	public List<HouseInfoAll> getAllHouseInfoAllByResident(boolean resident) {
 		// TODO Auto-generated method stub
 		return scd.getAllHouseInfoAllByResident(resident);
+	}
+	@Test
+	public void show(){
+		List<HouseInfoAll> list =getAllHouseInfoAllByType("独");
+		for (HouseInfoAll ff : list) {
+			System.out.println(ff.toString());
+		}
 	}
 }

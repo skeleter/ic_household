@@ -35,6 +35,7 @@ public class GetHouseInfoServletByType extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("application/json;charset=utf-8");
 		String type=request.getParameter("type");
+		System.out.println(type);
 		PrintWriter out= response.getWriter();
 		//List<HouseInfo> list= new HouseInfoMangerServiceImp().getAllHouseInfo();
 		out.write(JSON.toJSONString(new HouseInfoMangerServiceImp().getAllHouseInfoAllByType(type)));

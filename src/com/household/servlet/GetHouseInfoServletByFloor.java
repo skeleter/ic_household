@@ -35,6 +35,7 @@ public class GetHouseInfoServletByFloor extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("application/json;charset=utf-8");
 		int floor=Integer.parseInt(request.getParameter("floor"));
+		System.out.println(floor);
 		PrintWriter out= response.getWriter();
 		//List<HouseInfo> list= new HouseInfoMangerServiceImp().getAllHouseInfo();
 		out.write(JSON.toJSONString(new HouseInfoMangerServiceImp().getAllHouseInfoAllByFloor(floor)));

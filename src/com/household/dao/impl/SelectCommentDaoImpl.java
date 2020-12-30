@@ -105,16 +105,14 @@ public class SelectCommentDaoImpl implements SelectCommentDao {
 		BeanListHandler<HouseInfoAll> handler = new BeanListHandler<HouseInfoAll>(HouseInfoAll.class);
 		//String sql = "SELECT  house_id houseId,building building,FLOOR FLOOR,room room,house_type_id houseTypeId,resident_id residentId FROM house_info";
 		String sql = "SELECT i.`house_id` houseId,i.`building` building,i.`floor` FLOOR,i.`room` room,i.`house_type_id` houseTypeId,i.`resident_id` residentId ,t.`house_type_name` houseTypeName,"+
-		"IF(i.`resident_id` IS NOT NULL,'是','否') AS haven FROM house_info i,house_type t WHERE  i.`house_type_id`=t.`house_type_id` AND i.`floor`=？";
+		"IF(i.`resident_id` IS NOT NULL,'是','否') AS haven FROM house_info i,house_type t WHERE  i.`house_type_id`=t.`house_type_id` AND i.`floor`=?";
 		try {
-			return qr.query(sql, floor,handler);
-
+			return qr.query(sql,floor,handler);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
 	@Override
 	public List<HouseInfoAll> getAllHouseInfoAllByResident(boolean resident) {
 		// TODO Auto-generated method stub
