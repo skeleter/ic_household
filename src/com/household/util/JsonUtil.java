@@ -8,21 +8,29 @@ import java.util.Map;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 
 
 
 /**     
- * ����json�Ĺ����࣬����json����ת����java�����java����ת����json     
+ * 处理json的工具类，负责json数据转换成java对象和java对象转换成json     
  *      
  * @author yongtree     
- * @date 2008-11-22 ����10:47:13     
+ * @date 2008-11-22 上午10:47:13     
  * @version 1.0     
  */       
 public class JsonUtil {        
        
     /**     
-     * ��һ��JSON �����ַ���ʽ�еõ�һ��java����     
+     * 从一个JSON 对象字符格式中得到一个java对象     
      *      
      * @param jsonString     
      * @param pojoCalss     
@@ -37,7 +45,7 @@ public class JsonUtil {
        
        
     /**     
-     * ��json HASH���ʽ�л�ȡһ��map����map֧��Ƕ�׹���     
+     * 从json HASH表达式中获取一个map，改map支持嵌套功能     
      *      
      * @param jsonString     
      * @return     
@@ -60,7 +68,7 @@ public class JsonUtil {
        
        
     /**     
-     * ��json�����еõ���Ӧjava����     
+     * 从json数组中得到相应java数组     
      *      
      * @param jsonString     
      * @return     
@@ -73,7 +81,7 @@ public class JsonUtil {
        
        
     /**     
-     * ��json���󼯺ϱ��ʽ�еõ�һ��java�����б�     
+     * 从json对象集合表达式中得到一个java对象列表     
      *      
      * @param jsonString     
      * @param pojoClass     
@@ -99,7 +107,7 @@ public class JsonUtil {
        
        
     /**     
-     * ��json�����н�����java�ַ�������     
+     * 从json数组中解析出java字符串数组     
      *      
      * @param jsonString     
      * @return     
@@ -117,7 +125,7 @@ public class JsonUtil {
        
        
     /**     
-     * ��json�����н�����javaLong�Ͷ�������     
+     * 从json数组中解析出javaLong型对象数组     
      *      
      * @param jsonString     
      * @return     
@@ -135,7 +143,7 @@ public class JsonUtil {
        
        
     /**     
-     * ��json�����н�����java Integer�Ͷ�������     
+     * 从json数组中解析出java Integer型对象数组     
      *      
      * @param jsonString     
      * @return     
@@ -154,7 +162,7 @@ public class JsonUtil {
     
        
     /**     
-     * ��json�����н�����java Integer�Ͷ�������     
+     * 从json数组中解析出java Integer型对象数组     
      *      
      * @param jsonString     
      * @return     
@@ -172,7 +180,7 @@ public class JsonUtil {
        
        
     /**     
-     * ��java����ת����json�ַ���     
+     * 将java对象转换成json字符串     
      *      
      * @param javaObj     
      * @return     
@@ -186,7 +194,7 @@ public class JsonUtil {
     }        
     
     /**     
-     * ��List����ת����json�ַ���     
+     * 将List对象转换成json字符串     
      *      
      * @param lst     
      * @return     

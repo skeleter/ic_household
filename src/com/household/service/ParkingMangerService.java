@@ -1,4 +1,10 @@
 package com.household.service;
+
+import java.util.List;
+
+import com.household.pojo.ParkingInfo;
+import com.household.pojo.ParkingRentInfo;
+
 /**
  *对parking开头的表进行增删查改
  *需要写的方法：
@@ -22,6 +28,29 @@ package com.household.service;
  * 时间：
  * 姓名：
  */
-interface ParkingMangerService {
-
+public interface ParkingMangerService {
+	//1.对车位信息的增加（输入ParkingInfo，返回布尔类型）
+		boolean addParkingInfo(ParkingInfo pi);
+		 //2.根据车位id对车位信息的删除（输入int，返回布尔类型）
+		boolean delParkingInfoByParkingId(int id);
+		//3.对车位信息的修改（输入ParkingInfo，返回布尔类型）
+		boolean updateParkingInfo(ParkingInfo pi);
+		 //4.对车位租赁信息的增加（输入ParkingRentInfo，返回布尔类型）
+		boolean addParkingRentInfo(ParkingRentInfo pri);
+		//5.根据车位id对车位租赁的信息删除（输入parking_id（int）,返回布尔类型）
+		boolean delParkingRentInfoByParkingId(int id);
+		 //6.对车位租赁信息的修改（输入ParkingRentInfo，返回布尔类型）
+		boolean updateParkingRentInfo(ParkingRentInfo pri);
+		//7.查询所有车位信息（无输入，返回List<ParkingInfo>)
+		List<ParkingInfo> getAllParkingInfo();
+		 //8.查询所有车位租赁信息（无输入，返回List<ParkingRentInfo>)
+		List<ParkingRentInfo> getAllParkingRentInfo();
+		 //9.查询未租或已租出去的车位信息（输入布尔类型，已租为true，未租为false，返回List<ParkingInfo>)
+		List<ParkingInfo> getParkingRentInfoIsRent(boolean flag);
+		 //10.查询租金在一定区间内的车位（输入float，float，返回List<ParkingInfo>)
+		List<ParkingInfo> getParkingInfoByRentSection(float min,float max);
+		 //11.按照车牌查询车位信息（多表查询，ParkingInfo，ParkingRentInfo）（输入string，返回ParkingInfo）
+		List<ParkingInfo> getParkingInfoByParkingLocation(String parkingLocation);
+		 //12，查询剩余10天以内的车位信息（多表查询，ParkingInfo，ParkingRentInfo）（无输入，返回ParkingInfo）
+		List<ParkingInfo> getParkingInfoWithinTenDays();
 }

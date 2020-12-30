@@ -8,7 +8,7 @@ public interface ParkingRentInfoDao {
 	List<ParkingRentInfo> getParkingRentInfoByParkingId(int id);
 	List<ParkingRentInfo> getParkingRentInfoByResidentId(int id);
 	int addParkingRentInfo(ParkingRentInfo c);
-	int delParkingRentInfo(ParkingRentInfo c);
+	int delParkingRentInfo(int id);
 	int updateParkingRentInfo(ParkingRentInfo c);
 	List<ParkingRentInfo> getParkingRentInfoAll();
 }

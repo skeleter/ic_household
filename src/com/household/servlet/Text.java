@@ -13,6 +13,7 @@ import com.household.pojo.AccountInfo;
 import com.household.service.RegisterAndLoginService;
 import com.household.service.impl.RegisterAndLoginServiceImp;
 
+
 /**
  * Servlet implementation class Text
  */
@@ -34,13 +35,14 @@ public class Text extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
-		String name= request.getParameter("name");
-		String pwd=request.getParameter("pwd");
-		System.out.println("axios传递过来的：name--"+name+"---pwd---"+pwd);
+		String name= request.getParameter("username");
+		String pwd=request.getParameter("password");
+		//System.out.println("axios传递过来的：name--"+name+"---pwd---"+pwd);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out= response.getWriter();
 		RegisterAndLoginService ral=new RegisterAndLoginServiceImp();
 		if(ral.isUnameAndPassWordRight(new AccountInfo(1,name,pwd,"xxxx"))){
+			
 			System.out.println("true");
 			out.write("true");
 		}else{
